@@ -28,8 +28,8 @@ class _EstadoAplicativo extends State<Aplicativo> {
   int _tempo = 60;
   late Timer _timer;
   bool _clique = true;
-  Color cor1 = Colors.black;
-  Color cor2 = Colors.black;
+  Color cor1 = Colors.yellow;
+  Color cor2 = Colors.yellow;
   double posicao = 0;
 
   void movimentar() {
@@ -39,10 +39,10 @@ class _EstadoAplicativo extends State<Aplicativo> {
         posicao = 50.0;
       } else if (contador2 > contador1 ) {
         //imagem fica na direita
-        posicao = MediaQuery.of(context).size.width - 150.0;
+        posicao = MediaQuery.of(context).size.width - 250.0;
       } else {
         //personagem no meio
-        posicao = MediaQuery.of(context).size.width / 2 - 50;
+        posicao = MediaQuery.of(context).size.width / 2 - 150;
       }
     });
   }
@@ -71,14 +71,14 @@ class _EstadoAplicativo extends State<Aplicativo> {
 
   void mudarCor() {
     if (contador1 > contador2) {
-      cor1 = const Color.fromARGB(255, 255, 255, 255);
-      cor2 = Colors.purple;
+      cor1 = Colors.purple;
+      cor2 = Colors.redAccent;
     }else if (contador2 > contador1) {
-     cor1 = Colors.purple;
-     cor2 = const Color.fromARGB(255, 243, 243, 243);
+     cor1 = Colors.red;
+     cor2 = Colors.purple;
     }else {
-      cor1 = Colors.black;
-       cor2= Colors.black;
+      cor1 = Colors.orange;
+       cor2= Colors.orange;
 
     }
   }
@@ -138,7 +138,7 @@ class _EstadoAplicativo extends State<Aplicativo> {
                 ),
               Text(
                   'Tempo restante: $_tempo segundos',
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
               ],
             ),
@@ -149,9 +149,9 @@ class _EstadoAplicativo extends State<Aplicativo> {
             duration: Duration(milliseconds: 500),
              bottom: 100.0,
              left: posicao,
-             curve: Curves.easeInOut,
-            child: Image.network(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYbon-BdTKgZYRNJpIne7JnXL-0HLvTe4N4cdCnn99fe-sFX92qWE3Nb3MKD76I9wg7SA&usqp=CAU', 
+             curve: Curves.elasticInOut,
+            child: Image.asset(
+              'Wdgaster.png', 
                 width: 200, 
                 height: 200,
               ),
